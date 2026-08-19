@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - 薬入れくん</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+      line-height: 1.8;
+    }
+    h1 { font-size: 24px; border-bottom: 2px solid #34a853; padding-bottom: 10px; }
+    h2 { font-size: 18px; margin-top: 32px; color: #188038; }
+    h3 { font-size: 16px; margin-top: 20px; }
+    p, li { font-size: 15px; }
+    ul { padding-left: 20px; }
+    code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+    .updated { color: #888; font-size: 13px; }
+    .note { background: #fff8dc; border-left: 4px solid #f4b400; padding: 10px 14px; margin: 16px 0; }
+    .contact { background: #e8f0fe; border-left: 4px solid #4285f4; padding: 10px 14px; margin: 16px 0; font-size: 14px; }
+    .purpose { background: #eef7ee; border-left: 4px solid #34a853; padding: 12px 14px; margin: 16px 0; }
+    .pledge { background: #e8f0fe; border-left: 4px solid #4285f4; padding: 10px 14px; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #e6f4ea; }
+  </style>
+</head>
+<body>
+  <h1>プライバシーポリシー</h1>
+  <p class="updated">最終更新日: 2026年8月19日 ／ 対象バージョン: 4.9.5</p>
+
+  <p>本プライバシーポリシーは、Chrome拡張機能「<strong>薬入れくん</strong>」（以下「本拡張機能」）における
+  ユーザーデータの取り扱いについて説明します。</p>
+
+  <div class="note">
+    本拡張機能は、紙・PDF・画像に書かれた処方内容を読み取り、画面で確認・修正したうえで、
+    電子カルテの処方欄へ入力する作業を補助するツールです。
+    <strong>ユーザーが自分で選んだ画像やファイルだけ</strong>を処理します。
+    <strong>保存・確定の操作は行いません。</strong>入力後の内容の確認と保存は、必ずユーザー自身が行います。
+  </div>
+
+  <!-- 単一の目的 -->
+  <h2>1. 単一の目的（Single Purpose）</h2>
+  <div class="purpose">
+    <strong>本拡張機能の唯一の目的:</strong><br>
+    ユーザーが指定した処方内容（お薬手帳・処方箋・調剤結果などの画像やPDF）を読み取り、
+    <strong>画面で確認・修正したうえで、電子カルテの処方欄へ入力する</strong>ことです。<br>
+    本拡張機能は、この目的以外の機能（広告表示・ユーザー追跡・SNS連携・第三者へのデータ販売・
+    閲覧履歴の収集など）を一切持ちません。
+  </div>
+
+  <!-- 扱うデータ -->
+  <h2>2. 拡張機能が扱うデータ（収集する情報の種類）</h2>
+  <p>本拡張機能は、ユーザーが読み取りまたは入力を実行した時にのみ、以下のデータを処理します。
+  Chrome ウェブストアのデータ使用フォームで申告する分類に合わせて開示します。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Chrome ウェブストアの分類</th>
+        <th>本拡張機能における具体的内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ウェブサイトのコンテンツ</strong></td>
+        <td>ユーザーが読み取りの対象として指定した画像・PDF そのもの。取得の方法は次の4つで、
+        いずれも<strong>ユーザーがボタンを押した時にだけ</strong>取得されます。<br>
+        ①現在開いているタブの表示部分のキャプチャ（<code>chrome.tabs.captureVisibleTab</code>）<br>
+        ②上記キャプチャからユーザーがマウスで選択した範囲の切り抜き<br>
+        ③ユーザーが選択したローカルの画像ファイルまたはPDF<br>
+        ④ユーザーが入力欄に貼り付けた画像のURL（そのURLへ画像を取りに行きます）<br>
+        あわせて、電子カルテ（digikar.jp）の処方画面で、<strong>薬を検索したときの候補の一覧
+        （薬剤名・規格・用法の文字）と、入力した処方行の並び</strong>を読み取ります。
+        これは「どの薬を選ぶか」「どのまとまりに入れるか」を決めるために必要な範囲に限られます。<br>
+        <strong>患者の氏名・生年月日・患者番号・カルテ本文を読み取る処理は持っていません。</strong></td>
+      </tr>
+      <tr>
+        <td><strong>個人を特定できる情報／健康に関する情報</strong></td>
+        <td>本拡張機能は、氏名や生年月日などを<strong>それと分かる項目として取り出す処理を持っていません</strong>
+        （AI への指示文で明示的に禁止し、万一返ってきた場合もコード側で破棄します）。
+        ただし、ユーザーが選んだ画像に氏名・日付・処方内容などが写っていれば、
+        <strong>その画像は画像のまま Google の Gemini API へ送信されます</strong>（第5章）。<br>
+        <strong>処方内容（薬剤名・用量・用法）は健康に関する情報にあたります。</strong>
+        どの画像を処理するかはユーザーが選択するため、<strong>個人情報を含む画像を扱うかどうかは
+        ユーザーの判断と責任によります</strong>。</td>
+      </tr>
+      <tr>
+        <td><strong>認証に関する情報</strong></td>
+        <td>ユーザーが登録する Google Gemini API キー（Google 社が発行し、ユーザー自身が取得したもの）。
+        ユーザーの端末内（<code>chrome.storage.local</code>）にのみ保存されます。
+        開発者のキーは使用せず、開発者へ送信されることもありません。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>本拡張機能は、以下のデータを <strong>収集しません</strong>:
+  氏名・生年月日・住所・電話番号・患者番号などを項目として抽出する処理、位置情報、閲覧履歴、検索履歴、
+  金融情報・決済情報、生体情報（指紋・顔画像など）、ウェブサイトのログイン情報。</p>
+
+  <!-- データの保管 -->
+  <h2>3. データの保管場所と保持期間</h2>
+  <p>保存先はすべて<strong>ユーザーのブラウザ内</strong>です。
+  <strong>開発者が運営するサーバーは存在しません。</strong></p>
+  <ul>
+    <li><strong>画像・PDF・読み取った処方内容</strong>：<strong>保存しません。</strong>
+      読み取りと入力の処理中だけメモリ上に存在し、サイドパネルを閉じるか
+      「読み取り直す」を押した時点で破棄されます。ディスクには書き込みません。</li>
+    <li><strong>Gemini API キー・使用するモデルの選択</strong>（<code>chrome.storage.local</code>）：
+      ユーザーが変更または削除するまで保持されます。</li>
+    <li><strong>処理中の一時情報</strong>（キャプチャ対象のウィンドウ番号・処理中かどうか）：
+      <code>chrome.storage.session</code> に置かれ、<strong>ブラウザを閉じた時点で消えます</strong>。
+      ディスクには残りません。</li>
+    <li><strong>保持期間</strong>：上記いずれも、ユーザーが削除するか拡張機能をアンインストールするまで
+      端末内に保持されます。開発者側にはいかなるデータも保持されないため、
+      開発者側での保持期間の定めはありません。</li>
+  </ul>
+
+  <!-- 権限と用途 -->
+  <h2>4. 拡張機能が要求する権限と用途</h2>
+  <p>本拡張機能が <code>manifest.json</code> で要求する権限と、その用途は以下のとおりです。
+  いずれも本拡張機能の単一の目的を達成するために必要最小限のものです。</p>
+  <table>
+    <thead>
+      <tr>
+        <th>権限</th>
+        <th>用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>activeTab</code></td>
+        <td>ユーザーがボタン、またはキーボードショートカット（既定: Windows は
+        <code>Ctrl+Shift+5</code>、Mac は <code>Command+Shift+5</code>）を押した時に限り、
+        現在開いているタブの表示部分を画像として取得するため。</td>
+      </tr>
+      <tr>
+        <td><code>scripting</code></td>
+        <td>次の2つのために使用します。①範囲選択のとき、マウスで範囲を囲むための透明な操作画面を
+        ページ上に重ねるため。②電子カルテの処方画面で、読み取った処方を入力するための部品を
+        読み込ませるため。読み込むのは拡張機能に同梱したスクリプトのみで、
+        外部から取得したコードは実行しません。</td>
+      </tr>
+      <tr>
+        <td><code>storage</code></td>
+        <td>Gemini API キーと設定をブラウザ内に保存するため。および処理中の一時情報を
+        セッション（ブラウザを閉じると消える領域）に置くため。</td>
+      </tr>
+      <tr>
+        <td><code>sidePanel</code></td>
+        <td>読み取った内容の確認・修正画面を、カルテを開いたまま横に並べて表示するため。</td>
+      </tr>
+      <tr>
+        <td>ホスト権限 <code>https://digikar.jp/*</code></td>
+        <td>電子カルテの処方画面で、薬の検索候補を読み取り、選んだ薬・数量・用法・日数・コメントを
+        入力するため。<strong>保存・確定・会計に関わる操作は行いません</strong>（該当するボタンを
+        押さないよう、コード側で明示的に禁止しています）。</td>
+      </tr>
+      <tr>
+        <td>ホスト権限 <code>https://generativelanguage.googleapis.com/*</code></td>
+        <td>Google の Gemini API へ画像を送信して処方内容を読み取るため。</td>
+      </tr>
+      <tr>
+        <td>任意のホスト権限 <code>&lt;all_urls&gt;</code></td>
+        <td><strong>既定では要求しません。</strong>ユーザーが「画像のURLを指定して読み取る」機能、
+        またはカルテ以外の画面のキャプチャを使うときに限り、ユーザーの操作で許可を求めます。
+        許可しなくても、ファイル選択とカルテ画面での利用はできます。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 外部サービスへの送信 -->
+  <h2>5. 外部サービスへのデータ送信（第三者提供）</h2>
+  <p>本拡張機能は、<strong>開発者が運営するサーバーへのデータ送信を一切行いません</strong>。
+  外部への通信は、次の2つだけです。</p>
+
+  <h3>5-1. Google Gemini API（<code>generativelanguage.googleapis.com</code>）</h3>
+  <ul>
+    <li><strong>実行タイミング</strong>：ユーザーが Gemini API キーを登録し、読み取りを実行した時のみです。
+      自動的な送信は行いません。</li>
+    <li><strong>送信内容</strong>：<strong>対象の画像またはPDFそのもの</strong>（キャプチャした画像・選択範囲・
+      指定したファイルや画像URLの中身）と、読み取りを指示する固定の文章です。
+      画像に写っているものは<strong>そのまま送信されます</strong>ので、
+      個人情報が写り込む画像を扱う場合は十分にご注意ください。</li>
+    <li><strong>画像の向きの判定</strong>：横向き・逆さに撮られた画像を正しい向きに直してから読み取るため、
+      <strong>画像の写しを、読み取りの前に送信して「時計回りに何度回すか」だけを尋ねます</strong>
+      （長辺が1000ピクセルを超える場合は縮小した写しを、超えない場合はその画像を送ります）。
+      向きが決まらない場合は、向きを変えて読み取りをやり直すことがあります。
+      回転そのものはユーザーの端末内で行い、画像は保存しません。</li>
+    <li><strong>読み取りの手順</strong>：正確さのため、1枚の画像について
+      「①書き起こす → ②処方として組み立てる → ③足りない項目を拾い直す」の順で複数回問い合わせます。
+      いずれも同じ画像・同じ宛先（Gemini API）です。</li>
+    <li><strong>API キーの扱い</strong>：ユーザー自身が取得したキーを使用します。
+      キーは常に HTTP ヘッダー（<code>x-goog-api-key</code>）で送信し、URL には含めません。
+      通信は HTTPS で暗号化されます。送信先のサーバーは日本国外に所在する場合があります。</li>
+    <li><strong>無料キー利用時の注意</strong>：無料枠のキーで利用する場合、送信内容が Google 社の
+      モデル改善学習に利用される可能性があります。<strong>診療情報を扱う場合は、有料キーの利用および
+      Google 社が提供する学習のオプトアウト設定を強く推奨します。</strong></li>
+    <li>送信されたデータの取り扱いは、Google 社の
+      「<a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API 追加利用規約</a>」
+      および「<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a>」
+      に従います。</li>
+  </ul>
+
+  <h3>5-2. ユーザーが入力した画像URL</h3>
+  <ul>
+    <li>ユーザーが画像のURLを入力した場合に限り、そのURLへ画像を取りに行きます（取得のみ）。
+      宛先はユーザーが指定したものだけで、開発者が宛先を決めることはありません。</li>
+  </ul>
+
+  <p>上記以外に、本拡張機能が外部へデータを送信することはありません。
+  薬剤名の照合に使う薬価基準収載品目リストは<strong>拡張機能に同梱</strong>しており、
+  照合のために外部と通信することはありません。</p>
+
+  <!-- 医療機関での利用 -->
+  <h2>6. 医療機関でご利用になる場合の注意（重要）</h2>
+  <div class="note">
+    <p>本拡張機能は、処方内容（<strong>健康に関する情報</strong>）を扱います。
+    医療機関でご利用になる場合は、次の点を必ずご確認ください。</p>
+    <ul>
+      <li>画像に患者の氏名・生年月日・患者番号が写っている場合、
+        <strong>それも含めて Gemini API へ送信されます</strong>。
+        必要に応じて、氏名部分を隠す・範囲を指定して該当部分だけを読み取る、などの運用をご検討ください。</li>
+      <li>所属機関の規程・個人情報保護方針・厚生労働省のガイドライン等に照らして、
+        外部のAIサービスへ画像を送信してよいかを事前にご確認ください。</li>
+      <li><strong>有料キーの利用と学習のオプトアウト設定を推奨します</strong>（第5章）。</li>
+      <li>本拡張機能は<strong>入力までしか行いません</strong>。保存・確定は必ずご自身で行い、
+        入力後の内容を画面でご確認ください。</li>
+    </ul>
+  </div>
+
+  <!-- 開示事項 -->
+  <h2>7. データの使用に関する誓約（Chrome ウェブストア開示事項）</h2>
+  <div class="pledge">
+    <ul>
+      <li>ユーザーデータを<strong>第三者へ販売・譲渡しません</strong>
+        （承認された利用目的と無関係な移転を行いません）。</li>
+      <li>ユーザーデータを<strong>本拡張機能の単一の目的と無関係な用途に使用しません</strong>。</li>
+      <li>ユーザーデータを<strong>信用力の判断や金融商品の販売目的に使用しません</strong>。</li>
+    </ul>
+  </div>
+
+  <!-- Limited Use -->
+  <h2>8. Google API ユーザーデータポリシー（Limited Use）への準拠</h2>
+  <p>本拡張機能による Google API から取得した情報の使用および他アプリへの転送は、
+  <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use/" target="_blank" rel="noopener">
+  Chrome ウェブストアのユーザーデータポリシー</a>（Limited Use の要件を含む）に準拠します。</p>
+
+  <!-- セキュリティ -->
+  <h2>9. セキュリティ対策</h2>
+  <ul>
+    <li><strong>APIキーの保護</strong>：設定画面の入力欄は常に伏せ字で表示し、
+      コピー・切り取り・右クリック・ドラッグ・選択を抑止しています（貼り付けは可能です）。
+      キーは端末内にのみ保存され、画面に表示されることはありません。</li>
+    <li><strong>キーの送信方法</strong>：HTTPヘッダーでのみ送信し、URLには含めません。</li>
+    <li><strong>リモートコードを実行しません</strong>：外部から取得したコードを実行する仕組み
+      （<code>eval</code> や外部スクリプトの読み込みなど）を持ちません。
+      実行するのは拡張機能に同梱したコードのみです。</li>
+    <li><strong>同期しません</strong>：<code>chrome.storage.sync</code> は使用しないため、
+      設定やキーが他の端末へ同期されることはありません。</li>
+    <li><strong>保存・確定の操作を行いません</strong>：電子カルテ側で「保存」「確定」「会計」などに
+      関わるボタンを押さないよう、コード側で明示的に禁止しています。</li>
+  </ul>
+
+  <!-- ユーザーの権利 -->
+  <h2>10. ユーザーの権利（削除請求・開示請求）</h2>
+  <p>本拡張機能は開発者側にデータを保持しないため、開発者が保有するユーザーデータはありません。
+  端末内のデータは、次の方法でユーザー自身がいつでも削除できます。</p>
+  <ul>
+    <li>設定画面でAPIキーを空にして保存する</li>
+    <li>Chrome の拡張機能管理画面から本拡張機能を削除する（保存された設定もあわせて削除されます）</li>
+  </ul>
+
+  <!-- 補足 -->
+  <h2>11. 利用にあたっての補足（正確性・医療安全）</h2>
+  <p>本拡張機能は入力作業を補助するツールであり、<strong>診断・治療に関する判断や助言を行うものではありません</strong>。
+  AI による読み取りには誤りが起こり得ます。読み取った内容は、必ずご自身で元の紙と見比べて確認してください。
+  <strong>確認しないまま処方を保存しないでください。</strong>
+  薬剤名の照合（薬価基準収載品目リストとの突き合わせ）は<strong>打ち間違いに気づくための補助</strong>であり、
+  処方の妥当性を保証するものではありません。</p>
+
+  <!-- 変更 -->
+  <h2>12. ポリシーの変更</h2>
+  <p>本プライバシーポリシーは、必要に応じて改定される場合があります。改定があった場合は、本ページの最終更新日を更新します。</p>
+
+  <!-- 問い合わせ -->
+  <h2>13. お問い合わせ</h2>
+  <div class="contact">
+    本プライバシーポリシーに関するご質問は、Chromeウェブストアの拡張機能ページよりお問い合わせください。
+  </div>
+</body>
+</html>
